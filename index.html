@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Many More Happy Returns Of The Day</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Great+Vibes&family=Playball&family=Satisfy&family=Parisienne&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  overflow: hidden;
+  touch-action: manipulation;
+  padding: 15px;
+  position: relative;
+  background: linear-gradient(135deg, #1f0537, #9612eb);
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.background-image.loaded {
+  opacity: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(31, 5, 55, 0.85), rgba(150, 18, 235, 0.85));
+  z-index: -1;
+}
+
+.background-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1f0537, #9612eb);
+  z-index: -3;
+  display: block;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.card-container {
+  position: relative;
+  z-index: 10;
+  perspective: 1200px;
+  width: 100%;
+  max-width: 350px;
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.front {
+  background: linear-gradient(45deg, #9612eb, #ff6bcb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+  user-select: none;
+}
+
+.gift-box {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 30px;
+  animation: giftPulse 2s infinite;
+}
+
+@keyframes giftPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.gift-lid {
+  width: 160px;
+  height: 40px;
+  background: linear-gradient(to right, #ff6bcb, #9612eb);
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  top: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: lidFloat 3s infinite alternate ease-in-out;
+}
+
+@keyframes lidFloat {
+  0% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.gift-body {
+  width: 140px;
+  height: 120px;
+  background: linear-gradient(to bottom, #9612eb, #7413bb);
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ribbon {
+  width: 160px;
+  height: 20px;
+  background-color: #ff6bcb;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.ribbon::before, .ribbon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+  border-top: 28px solid #ff6bcb;
+  top: -28px;
+}
+
+.ribbon::before {
+  left: 28px;
+}
+
+.ribbon::after {
+  right: 28px;
+}
+
+.front h1 {
+  color: white;
+  font-size: 32px;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  margin-bottom: 15px;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  padding: 0 10px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.front p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 22px;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  font-weight: 500;
+  padding: 0 10px;
+  margin-top: 10px;
+  animation: sparkleText 3s infinite alternate;
+}
+
+@keyframes sparkleText {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
+                 0 0 20px rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* BACK SIDE - Now scrollable */
+.back {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.96),
+      rgba(255, 255, 255, 0.92)
+    );
+  transform: rotateY(180deg);
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  border: 15px solid rgba(150, 18, 235, 0.1);
+}
+
+/* Scrollable content area */
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+  margin-bottom: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: #9612eb rgba(150, 18, 235, 0.1);
+}
+
+/* Custom scrollbar */
+.scrollable-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: rgba(150, 18, 235, 0.1);
+  border-radius: 10px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: #9612eb;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: #7413bb;
+}
+
+.wish-content {
+  text-align: center;
+  width: 100%;
+  padding: 0 10px;
+  min-height: 100%;
+}
+
+h2 {
+  color: #5a0ea3;
+  font-size: 34px;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 20px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: titleGlow 4s infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    text-shadow: 2px 2px 8px rgba(150, 18, 235, 0.3),
+                 0 0 15px rgba(150, 18, 235, 0.2);
+  }
+}
+
+p {
+  font-size: 19px;
+  font-family: 'Satisfy', cursive;
+  line-height: 1.6;
+  margin: 15px 0;
+  color: #444;
+  font-weight: 400;
+  padding: 0 5px;
+  animation: messageFloat 5s infinite ease-in-out;
+}
+
+@keyframes messageFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Special styles for Pallavi message */
+.special-message {
+  background: rgba(150, 18, 235, 0.08);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px 0;
+  border-left: 4px solid #9612eb;
+}
+
+.highlight {
+  color: #9612eb;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.name-highlight {
+  color: #ff3366;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Parisienne', cursive;
+}
+
+.from-text {
+  font-size: 18px;
+  font-family: 'Parisienne', cursive;
+  color: #5a0ea3;
+  font-weight: 600;
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: linear-gradient(to right, rgba(150, 18, 235, 0.08), rgba(255, 107, 203, 0.08));
+  border-radius: 15px;
+  border-left: 4px solid #9612eb;
+  display: inline-block;
+  animation: signaturePulse 3s infinite alternate;
+}
+
+@keyframes signaturePulse {
+  0% {
+    transform: scale(1);
+    background: linear-gradient(to right, rgba(150, 18, 235, 0.08), rgba(255, 107, 203, 0.08));
+  }
+  100% {
+    transform: scale(1.03);
+    background: linear-gradient(to right, rgba(150, 18, 235, 0.12), rgba(255, 107, 203, 0.12));
+  }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #5a0ea3;
+  font-size: 14px;
+  opacity: 0.7;
+  animation: scrollIndicator 2s infinite;
+  display: none;
+}
+
+@keyframes scrollIndicator {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Buttons container - fixed at bottom */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+button {
+  padding: 16px 25px;
+  border: none;
+  border-radius: 50px;
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  min-height: 55px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.new-wish {
+  background: linear-gradient(45deg, #9612eb, #ff6bcb);
+  color: white;
+}
+
+.flip-back {
+  background: linear-gradient(45deg, #5a0ea3, #380c60);
+  color: white;
+}
+
+button span {
+  font-family: 'Playball', cursive;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  display: none;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #f00;
+  top: 0;
+  opacity: 0;
+}
+
+.instruction {
+  position: absolute;
+  bottom: -55px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  font-family: 'Dancing Script', cursive;
+  opacity: 0.9;
+  font-weight: 500;
+  padding: 0 15px;
+  animation: instructionFloat 4s infinite ease-in-out;
+}
+
+@keyframes instructionFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1f0537, #9612eb);
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
+.loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ff6bcb;
+  animation: spin 1.2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Scroll hint animation */
+.scroll-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #5a0ea3;
+  font-size: 12px;
+  opacity: 0.6;
+  animation: bounce 2s infinite;
+  display: none;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  .card {
+    height: 500px;
+  }
+  
+  .back {
+    padding: 25px 20px;
+  }
+  
+  .scrollable-content {
+    padding-right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    height: 480px;
+  }
+  
+  .card-container {
+    max-width: 320px;
+  }
+  
+  .gift-box {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .front h1 {
+    font-size: 30px;
+  }
+  
+  .front p {
+    font-size: 20px;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
+  .special-message {
+    padding: 12px;
+  }
+  
+  button {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+  
+  .scrollable-content {
+    margin-bottom: 10px;
+  }
+}
+
+/* Landscape mode optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+  .card {
+    height: 320px;
+    max-width: 500px;
+  }
+  
+  .back {
+    padding: 20px;
+  }
+  
+  .scrollable-content {
+    max-height: 180px;
+  }
+  
+  .button-container {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- Background Images -->
+<div class="background-container">
+  <div class="background-fallback"></div>
+  <img class="background-image" id="bgImage" alt="Birthday Background">
+  <div class="background-overlay"></div>
+</div>
+
+<!-- Loading screen -->
+<div class="loading" id="loading">
+  <div class="loader"></div>
+</div>
+
+<!-- Floating particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Confetti for celebration -->
+<div class="confetti" id="confetti"></div>
+
+<!-- Main card container -->
+<div class="card-container">
+  <div class="card" id="card">
+    <!-- Front side -->
+    <div class="front">
+      <div class="gift-box">
+        <div class="gift-lid"></div>
+        <div class="gift-body">
+          <div class="ribbon"></div>
+        </div>
+      </div>
+      <div class="front-content">
+        <h1>For My Special One 💖</h1>
+        <p>Tap to open my heartfelt wishes 🎁</p>
+      </div>
+    </div>
+
+    <!-- Back side - Now scrollable -->
+    <div class="back">
+      <!-- Scrollable content area -->
+      <div class="scrollable-content" id="scrollableContent">
+        <div class="wish-content">
+          <h2 id="title">Many More Happy Returns Of The Day 🎉</h2>
+          
+          <!-- Your special message for Pallavi (Nanna) -->
+          <div class="special-message">
+            <p>To my dearest <span class="name-highlight">Special One</span>,</p>
+            <p>You are <span class="highlight">more closest to my heart</span> than anyone else 💖</p>
+            <p>You are <span class="highlight">more special to me</span> than words can express ✨</p>
+            <p>I wish with all my heart that <span class="highlight">your future becomes brighter</span> with each passing day 🌟</p>
+            <p>May success, happiness, and love follow you everywhere you go! 🥰</p>
+          </div>
+          
+          <!-- Additional beautiful messages -->
+          <div class="special-message">
+            <p>Every moment I think of you brings a smile to my face 😊</p>
+            <p>Your presence in my life is the greatest gift I could ever receive 🎁</p>
+            <p>May your path be filled with beautiful flowers and sweet melodies 🌸🎶</p>
+            <p>Remember, you're capable of achieving anything you set your heart on! 💪</p>
+          </div>
+          
+          <div class="special-message">
+            <p>On this special day, I pray that:</p>
+            <p>• All your dreams come true 🌠</p>
+            <p>• Your health remains perfect 🏃‍♀️</p>
+            <p>• Your smile never fades 😄</p>
+            <p>• Your heart stays light and happy 💃</p>
+            <p>• Your success knows no bounds 📈</p>
+          </div>
+          
+          <p id="message">May your special day be as wonderful as you are! 🎂</p>
+          <p id="from" class="from-text">– With all my love for you 💜</p>
+        </div>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" id="scrollIndicator">↓ Scroll to read more ↓</div>
+      
+      <!-- Scroll hint (shows when content is scrollable) -->
+      <div class="scroll-hint" id="scrollHint">Swipe up to read more 📜</div>
+      
+      <!-- Buttons fixed at bottom -->
+      <div class="button-container">
+        <button class="new-wish" onclick="newWish(event)">
+          Another Wish <span>💜</span>
+        </button>
+        <button class="flip-back" onclick="flipBack(event)">
+          Close Card <span>🔄</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="instruction" id="instruction">Tap the card to open it!</div>
+</div>
+
+<script>
+// Wishes array with your special message included
+const wishes = [
+  { 
+    t: 'Many More Happy Returns Of The Day 🎂', 
+    m: 'To my special one, you are the closest to my heart and more special than anyone! May your future shine brighter than ever! ✨', 
+    f: '– With all my love for you 💜' 
+  },
+  { 
+    t: 'For My Special One 💖', 
+    m: 'You hold the most special place in my heart. Wishing you endless happiness and a future that\'s brighter than a thousand stars! 🌟', 
+    f: '– Someone who cares deeply 💝' 
+  },
+  { 
+    t: 'It\'s Your Special Day! 🎉', 
+    m: 'Nanna, may this year bring you closer to all your dreams and fill your life with beautiful moments! You deserve the world! 🌍', 
+    f: '– Always cheering for you 🥳' 
+  },
+  { 
+    t: 'Another Year Wiser 😎', 
+    m: 'You\'re getting more awesome with each passing year! May success and happiness be your constant companions! 🚀', 
+    f: '– Your biggest admirer 💖' 
+  },
+  { 
+    t: 'Make A Wish! 🌠', 
+    m: 'Dear Nanna, may all your dreams come true and your year ahead be as bright and beautiful as you are! 💫', 
+    f: '– Someone who believes in you 🌈' 
+  },
+  { 
+    t: 'Shine Brighter! 🌟', 
+    m: ' your future is destined to be extraordinary! May you achieve everything your heart desires! 🎯', 
+    f: '– Forever by your side 🤗' 
+  }
+];
+
+// DOM elements
+const card = document.getElementById('card');
+const title = document.getElementById('title');
+const message = document.getElementById('message');
+const from = document.getElementById('from');
+const particles = document.getElementById('particles');
+const confetti = document.getElementById('confetti');
+const loading = document.getElementById('loading');
+const instruction = document.getElementById('instruction');
+const bgImage = document.getElementById('bgImage');
+const scrollableContent = document.getElementById('scrollableContent');
+const scrollIndicator = document.getElementById('scrollIndicator');
+const scrollHint = document.getElementById('scrollHint');
+
+// Check if content is scrollable
+function checkScrollable() {
+  if (scrollableContent.scrollHeight > scrollableContent.clientHeight) {
+    // Content is scrollable, show scroll hint
+    scrollHint.style.display = 'block';
+    scrollIndicator.style.display = 'block';
+  } else {
+    scrollHint.style.display = 'none';
+    scrollIndicator.style.display = 'none';
+  }
+}
+
+// Smooth scroll to bottom
+function scrollToBottom() {
+  scrollableContent.scrollTo({
+    top: scrollableContent.scrollHeight,
+    behavior: 'smooth'
+  });
+}
+
+// Smooth scroll to top
+function scrollToTop() {
+  scrollableContent.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Handle scroll events
+scrollableContent.addEventListener('scroll', function() {
+  // Hide scroll indicator when user starts scrolling
+  if (scrollableContent.scrollTop > 10) {
+    scrollIndicator.style.opacity = '0';
+    scrollHint.style.opacity = '0';
+  } else {
+    scrollIndicator.style.opacity = '0.7';
+    scrollHint.style.opacity = '0.6';
+  }
+  
+  // Auto-hide scroll hint after 3 seconds of scrolling
+  clearTimeout(window.scrollHintTimeout);
+  window.scrollHintTimeout = setTimeout(() => {
+    scrollHint.style.opacity = '0';
+    setTimeout(() => {
+      if (scrollableContent.scrollTop > 10) {
+        scrollHint.style.display = 'none';
+      }
+    }, 300);
+  }, 3000);
+});
+
+// Touch/swipe detection for scrolling
+let touchStartY = 0;
+let touchEndY = 0;
+
+scrollableContent.addEventListener('touchstart', function(e) {
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+scrollableContent.addEventListener('touchend', function(e) {
+  touchEndY = e.changedTouches[0].clientY;
+  const diff = touchStartY - touchEndY;
+  
+  // If swipe was significant, hide scroll hint
+  if (Math.abs(diff) > 20) {
+    scrollHint.style.opacity = '0';
+    setTimeout(() => {
+      scrollHint.style.display = 'none';
+    }, 300);
+  }
+}, { passive: true });
+
+// FIXED: Load background image - SIMPLIFIED VERSION
+function loadBackgroundImage() {
+  console.log('Loading background image...');
+  
+  // List of possible image paths
+  const imagePaths = [
+    './assets/images/photo.jpg',
+    'assets/images/photo.jpg',
+    './assets/images/photo.jpeg',
+    './assets/images/photo.png',
+    './assets/images/birthday.jpg',
+    './assets/images/bg.jpg',
+    './photo.jpg',
+    'photo.jpg',
+    'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'
+  ];
+  
+  // Try each path
+  function tryNextPath(index) {
+    if (index >= imagePaths.length) {
+      console.log('No image loaded, using gradient fallback');
+      return;
+    }
+    
+    const path = imagePaths[index];
+    console.log(`Trying: ${path}`);
+    
+    const testImage = new Image();
+    
+    testImage.onload = function() {
+      console.log(`✓ Image found: ${path}`);
+      console.log(`  Size: ${this.width}x${this.height}`);
+      
+      // Set the background image
+      bgImage.src = path;
+      
+      // Show it with fade in
+      setTimeout(() => {
+        bgImage.classList.add('loaded');
+      }, 100);
+    };
+    
+    testImage.onerror = function() {
+      console.log(`✗ Not found: ${path}`);
+      // Try next path
+      tryNextPath(index + 1);
+    };
+    
+    testImage.src = path;
+  }
+  
+  // Start trying from first path
+  tryNextPath(0);
+}
+
+// Initialize everything
+function init() {
+  console.log('Initializing special birthday card for Pallavi (Nanna)...');
+  
+  // Show loading screen
+  loading.style.display = 'flex';
+  
+  // Load background image
+  loadBackgroundImage();
+  
+  // Create particles
+  createParticles();
+  
+  // Setup touch events
+  setupTouchEvents();
+  
+  // Hide loading screen
+  setTimeout(() => {
+    loading.classList.add('hidden');
+    
+    // Show instruction
+    setTimeout(() => {
+      instruction.style.opacity = '1';
+    }, 500);
+    
+    // Check if content is scrollable after a delay
+    setTimeout(checkScrollable, 1000);
+  }, 2000);
+}
+
+// Create floating particles
+function createParticles() {
+  const particleCount = 35;
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    
+    const size = Math.random() * 8 + 4;
+    const posX = Math.random() * 100;
+    const duration = Math.random() * 20 + 10;
+    const delay = Math.random() * 5;
+    const colors = ['#ff6bcb', '#ffffff', '#ffcc00', '#00ccff'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${posX}%`;
+    particle.style.backgroundColor = color;
+    particle.style.animationDuration = `${duration}s`;
+    particle.style.animationDelay = `${delay}s`;
+    particle.style.opacity = '0.6';
+    
+    particles.appendChild(particle);
+  }
+}
+
+// Setup touch events
+function setupTouchEvents() {
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isTouching = false;
+  
+  card.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    isTouching = true;
+    card.style.transform = 'scale(0.98)';
+  });
+  
+  card.addEventListener('touchend', (e) => {
+    if (!isTouching) return;
+    
+    const touch = e.changedTouches[0];
+    const touchEndX = touch.clientX;
+    const touchEndY = touch.clientY;
+    
+    card.style.transform = '';
+    
+    const deltaX = Math.abs(touchEndX - touchStartX);
+    const deltaY = Math.abs(touchEndY - touchStartY);
+    
+    if (deltaX < 15 && deltaY < 15) {
+      handleCardTap();
+    }
+    
+    isTouching = false;
+  });
+  
+  card.addEventListener('click', handleCardTap);
+  card.addEventListener('touchmove', () => {
+    isTouching = false;
+    card.style.transform = '';
+  });
+}
+
+// Create confetti
+function createConfetti() {
+  confetti.innerHTML = '';
+  confetti.style.display = 'block';
+  
+  for (let i = 0; i < 100; i++) {
+    const piece = document.createElement('div');
+    piece.classList.add('confetti-piece');
+    
+    const colors = ['#ff6bcb', '#9612eb', '#5a0ea3', '#ffcc00', '#00ccff', '#33cc33'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const size = Math.random() * 10 + 6;
+    const posX = Math.random() * 100;
+    const duration = Math.random() * 2.5 + 1.5;
+    const delay = Math.random() * 0.8;
+    
+    piece.style.width = `${size}px`;
+    piece.style.height = `${size}px`;
+    piece.style.left = `${posX}%`;
+    piece.style.backgroundColor = color;
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    
+    // FIXED: Create animation without label syntax error
+    const animationName = `confettiFall${i}`;
+    const keyframes = `
+      @keyframes ${animationName} {
+        0% {
+          top: -30px;
+          transform: rotate(0deg) translateX(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          transform: rotate(${Math.random() * 720}deg) translateX(${Math.random() * 150 - 75}px) scale(0.5);
+          opacity: 0;
+        }
+      }
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = keyframes;
+    document.head.appendChild(style);
+    
+    piece.style.animation = `${animationName} ${duration}s ease-out ${delay}s forwards`;
+    confetti.appendChild(piece);
+  }
+  
+  setTimeout(() => {
+    confetti.style.display = 'none';
+  }, 3500);
+}
+
+// Get random wish
+function randomWish() {
+  const w = wishes[Math.floor(Math.random() * wishes.length)];
+  
+  title.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  message.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  from.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  
+  title.style.opacity = '0';
+  title.style.transform = 'translateY(10px)';
+  message.style.opacity = '0';
+  message.style.transform = 'translateY(10px)';
+  from.style.opacity = '0';
+  from.style.transform = 'translateY(10px)';
+  
+  setTimeout(() => {
+    title.textContent = w.t;
+    message.textContent = w.m;
+    from.textContent = w.f;
+    
+    title.style.opacity = '1';
+    title.style.transform = 'translateY(0)';
+    message.style.opacity = '1';
+    message.style.transform = 'translateY(0)';
+    from.style.opacity = '1';
+    from.style.transform = 'translateY(0)';
+    
+    setTimeout(() => {
+      title.style.transform = 'scale(1.05)';
+      setTimeout(() => {
+        title.style.transform = 'scale(1)';
+      }, 200);
+    }, 50);
+    
+    if (card.classList.contains('flipped')) {
+      createConfetti();
+      // Scroll to top when new wish appears
+      setTimeout(scrollToTop, 100);
+    }
+    
+    // Check if content is scrollable after content update
+    setTimeout(checkScrollable, 100);
+  }, 400);
+}
+
+// Handle card tap
+function handleCardTap() {
+  if (!card.classList.contains('flipped')) {
+    card.style.transition = 'transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.4)';
+    card.classList.add('flipped');
+    
+    setTimeout(() => {
+      randomWish();
+      createConfetti();
+      
+      instruction.style.opacity = '0.7';
+      instruction.textContent = 'Enjoy the wishes! 🎊';
+      
+      // Show scroll hint if content is scrollable
+      setTimeout(() => {
+        checkScrollable();
+        if (scrollHint.style.display === 'block') {
+          // Auto-hide scroll hint after 5 seconds
+          setTimeout(() => {
+            scrollHint.style.opacity = '0';
+            setTimeout(() => {
+              scrollHint.style.display = 'none';
+            }, 300);
+          }, 5000);
+        }
+      }, 500);
+      
+      if (navigator.vibrate) {
+        navigator.vibrate([50, 30, 50]);
+      }
+    }, 400);
+  }
+}
+
+// Flip back button
+function flipBack(e) {
+  if (e) e.stopPropagation();
+  
+  card.style.transition = 'transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.4)';
+  card.classList.remove('flipped');
+  
+  // Scroll to top when flipping back
+  scrollToTop();
+  
+  setTimeout(() => {
+    instruction.style.opacity = '1';
+    instruction.textContent = 'Tap the card to open it! 🎁';
+  }, 400);
+}
+
+// New wish button
+function newWish(e) {
+  if (e) {
+    e.stopPropagation();
+    const btn = e.target.closest('button');
+    btn.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      btn.style.transform = '';
+    }, 150);
+  }
+  
+  randomWish();
+  createConfetti();
+  
+  if (navigator.vibrate) {
+    navigator.vibrate(30);
+  }
+}
+
+// Keyboard support
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space' || e.code === 'Enter') {
+    e.preventDefault();
+    if (!card.classList.contains('flipped')) {
+      handleCardTap();
+    } else {
+      newWish();
+    }
+  }
+  
+  if (e.code === 'Escape' && card.classList.contains('flipped')) {
+    flipBack();
+  }
+  
+  // Arrow key support for scrolling
+  if (card.classList.contains('flipped')) {
+    if (e.code === 'ArrowDown' || e.code === 'PageDown') {
+      e.preventDefault();
+      scrollableContent.scrollBy({ top: 50, behavior: 'smooth' });
+    }
+    if (e.code === 'ArrowUp' || e.code === 'PageUp') {
+      e.preventDefault();
+      scrollableContent.scrollBy({ top: -50, behavior: 'smooth' });
+    }
+    if (e.code === 'Home') {
+      e.preventDefault();
+      scrollToTop();
+    }
+    if (e.code === 'End') {
+      e.preventDefault();
+      scrollToBottom();
+    }
+  }
+});
+
+// Start everything
+window.addEventListener('DOMContentLoaded', init);
+
+console.log('💖 Special birthday card for Pallavi (Nanna) loaded!');
+console.log('💝 May your heartfelt message reach her!');
+console.log('📜 Scroll feature enabled - Use mouse wheel, touch swipe, or arrow keys');
+</script>
+</body>
+</html>
